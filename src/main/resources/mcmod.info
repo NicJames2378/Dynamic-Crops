@@ -1,14 +1,14 @@
 [
 {
-  "modid": "mystagradcompat",
-  "name": "Mystical Agradditions Compat",
-  "description": "Implements compatibility for Mystical Agradditions tier 6 crops in the Immersive Engineering Garden Cloche. \nTo use, simply put the corresponding crux beneath the seeds where dirt would normally go.",
-  "version": "1.2",
+  "modid": "dynamiccrops",
+  "name": "Dynamic Crops",
+  "description": "A mod to make crops... dynamically!",
+  "version": "1.0.1",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["NicJames2378"],
-  "credits": "Special thanks to BluSunrize and BlakeBr0 for their work in their respective mods",
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

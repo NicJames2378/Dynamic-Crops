@@ -1,9 +1,9 @@
-package com.nicjames2378.MODNAME;
+package com.nicjames2378.DynamicCrops;
 
 import java.lang.reflect.Method;
 
-import com.nicjames2378.MODNAME.proxy.CommonProxy;
-import com.nicjames2378.MODNAME.utils.Reference;
+import com.nicjames2378.DynamicCrops.proxy.CommonProxy;
+import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;

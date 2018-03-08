@@ -1,6 +1,6 @@
-package com.nicjames2378.MODNAME.proxy;
+package com.nicjames2378.DynamicCrops.proxy;
 
-import com.nicjames2378.MODNAME.utils.Reference;
+import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
