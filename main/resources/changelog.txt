@@ -1,3 +1,6 @@
+1.0.2
+~Implemented internal logger
+
 1.0.1
 +Fixed namings and refactored to reflect this mod instead of my "STOCK" folder that I copied. Oops.
 

@@ -22,8 +22,12 @@ public class Main {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
+	private static Logger logger;
+	
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
+		logger.info("DynamicCrops, ready for action!");
 		proxy.PreInit(event);
 	}
 	
