@@ -4,9 +4,12 @@ import java.lang.reflect.Method;
 
 import org.apache.logging.log4j.Logger;
 
+import com.nicjames2378.DynamicCrops.GUI.UICreativeTab;
+import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.proxy.CommonProxy;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -19,17 +22,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class Main {
 
 	@Instance
-	public static Main instance;
-	
+	public static Main instance;	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
-	public static CommonProxy proxy;
-	
-	private static Logger logger;
+	public static CommonProxy proxy;	
+	public static Logger logger;	
+	public static CreativeTabs modCreativeTab;
 	
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		logger.info("DynamicCrops, ready for action!");
+		
+		modCreativeTab = new UICreativeTab(CreativeTabs.getNextID(), "tabmod");
+		ModBlocks.Initialize();		
+		
 		proxy.PreInit(event);
 	}
 	
