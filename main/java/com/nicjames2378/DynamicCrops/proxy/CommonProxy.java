@@ -20,15 +20,15 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy {	
 	public void PreInit(FMLPreInitializationEvent event) {
-
+    
 	}
 	
 	public void Init(FMLInitializationEvent event) {
-		
+	  
 	}	
 	
 	public void PostInit(FMLPostInitializationEvent event) {
-
+    
 	}
 	
     @SubscribeEvent
