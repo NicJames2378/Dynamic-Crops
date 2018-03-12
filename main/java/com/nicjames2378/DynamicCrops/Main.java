@@ -2,6 +2,8 @@ package com.nicjames2378.DynamicCrops;
 
 import java.lang.reflect.Method;
 
+import org.apache.logging.log4j.Logger;
+
 import com.nicjames2378.DynamicCrops.proxy.CommonProxy;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
