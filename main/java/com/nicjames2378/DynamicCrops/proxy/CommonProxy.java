@@ -1,5 +1,6 @@
 package com.nicjames2378.DynamicCrops.proxy;
 
+import com.nicjames2378.DynamicCrops.ModBlocks;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraftforge.fml.common.Mod;
@@ -13,10 +14,15 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy {	
 	public void PreInit(FMLPreInitializationEvent event) {
-	
+
+		//BLOCKS INIT
+		ModBlocks.init();
+		
 	}
 	
 	public void Init(FMLInitializationEvent event) {
+		
+		
 		
 	}	
 	

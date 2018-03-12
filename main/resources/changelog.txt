@@ -1,3 +1,6 @@
+1.0.3
+~Implemented about half the code for a test block; will attempt to correct when provided enough personal time.
+
 1.0.2
 ~Implemented internal logger
 
