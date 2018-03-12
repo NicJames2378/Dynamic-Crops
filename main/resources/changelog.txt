@@ -1,3 +1,8 @@
+1.0.3
++Implemented creative tab
++Implemented basic system for non-tile blocks for adding decorative blocks easier. Texturing and modeling incomplete.
++Added language file as a basic of how it works. Can be changed as needed, as long as current syntax is followed.
+
 1.0.2
 ~Implemented internal logger
 
