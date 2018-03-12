@@ -30,11 +30,16 @@ public class ClientProxy extends CommonProxy {
 	public void Init(FMLInitializationEvent event) {
 		super.Init(event);
 		
+		/*
+		 * Leaving this here for you if you need it. It can be deleted if you don't though
+		 * Also, this is called a block comment :D
+		 * 
 		//Declaring this variable so I don't have a massive chunk of text every time I want to use it
 		ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
 		
 		//Blocks init
 		ModBlocks.initClient(mesher);
+		*/
 	}	
 	
 	@Override
