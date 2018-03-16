@@ -25,7 +25,7 @@ public class ModItems {
 	public static BaseSeed seedTestanium;// = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium");
 	
 	public static void RegisterCropSeeds() {
-		seedTestanium = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium");
+		seedTestanium = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium", -1);
 	}
 	
 	public static void RegisterItems(IForgeRegistry<Item> registry) {

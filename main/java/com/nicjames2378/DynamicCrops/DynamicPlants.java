@@ -9,10 +9,16 @@ import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
 import com.nicjames2378.DynamicCrops.items.ModItems;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DynamicPlants {
 	/*
@@ -34,10 +40,17 @@ public class DynamicPlants {
 	 * 		seedTest registerItemModel
 	 */
 	
+	//TODO: Add configuration file whitelist for what items to make crops for
 	protected static Item[] pseudoWhitelist = new Item[] {
 			(Items.APPLE),
 			(Items.COOKIE),
 			(Items.REPEATER)
+	};
+	
+	protected static int[] cols = new int[] {
+			0xff0000,
+			0x663300,
+			0xcccccc
 	};
 	
 	protected static List<BaseCrop> cropsList = new ArrayList<BaseCrop>();
@@ -54,7 +67,13 @@ public class DynamicPlants {
 	public static void CreateCropSeeds(RegistryEvent.Register<Item> event) {
 		Main.logger.info("\n\n\n\n");
 		for(int b = 0; b < cropsList.size(); b++) {
-			BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND, "dseed_" + pseudoWhitelist[b].getUnlocalizedName());
+			BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND,  "dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
+			newSeed.SetIsDynamic(true);
+	        ItemStack is = new ItemStack(newSeed);
+	        
+	        //is.setStackDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])));//.getTagCompound().setString(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])), "8brickdmg");
+
+			
 			cropsList.get(b).itemSeed = newSeed;
 			seedsList.add(newSeed);
 			event.getRegistry().register(newSeed);
@@ -64,5 +83,5 @@ public class DynamicPlants {
 			
 			newSeed.registerItemModel();
 		}
-	}
+	}		
 }

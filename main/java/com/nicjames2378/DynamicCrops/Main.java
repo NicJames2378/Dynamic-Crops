@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.nicjames2378.DynamicCrops.GUI.UICreativeTab;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseBlock;
+import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
 import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.items.ModItems;
 import com.nicjames2378.DynamicCrops.proxy.CommonProxy;
@@ -49,6 +50,7 @@ public class Main {
 	@EventHandler
 	public static void Init(FMLInitializationEvent event) {
 		proxy.Init(event);
+		BaseSeed.regColors();
 	}
 	
 	@EventHandler
