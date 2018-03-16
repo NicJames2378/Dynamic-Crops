@@ -11,10 +11,12 @@ import net.minecraft.item.ItemSeeds;
 
 public class BaseSeed extends ItemSeeds {
 	protected String name;
+	protected Block cb;
 	
 	public BaseSeed(Block cropBlock, Block soilBlock, String registryName) {
 		super(cropBlock, soilBlock);
 		this.name = registryName;
+		this.cb = cropBlock;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
 		setRegistryName(registryName);
 		setCreativeTab(Main.modCreativeTab);
@@ -22,5 +24,9 @@ public class BaseSeed extends ItemSeeds {
 
 	public void registerItemModel() {
 		Main.proxy.registerItemRenderer(this, 0, name);	
+	}
+	
+	public Block GetCropBlock() {
+		return cb;
 	}
 }

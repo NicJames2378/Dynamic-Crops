@@ -39,7 +39,6 @@ public class ModItems {
 	
 	public static void RegisterModels() {
 		ingotTestanium.registerItemModel();
-		Main.logger.info("TESTNAIUM: Registering seed");
 		seedTestanium.registerItemModel();
 	}
 }

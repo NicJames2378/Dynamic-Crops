@@ -61,7 +61,10 @@ public class Main {
 		@SubscribeEvent
 		public static void RegisterBlocks(RegistryEvent.Register<Block> event) {
 	    	Main.logger.info("REGISTERING BLOCKS");	    	
-	    	ModBlocks.RegisterBlocks(event);  	
+	    	ModBlocks.RegisterBlocks(event);
+	    	
+	    	Main.logger.info("CREATING DYNAMIC CROPS");
+	    	DynamicPlants.CreateCropBlocks(event);
 	    }
 	    
 		@SubscribeEvent
@@ -69,6 +72,9 @@ public class Main {
 	    	Main.logger.info("REGISTERING ITEMS");
 	        ModBlocks.RegisterBlockItems(event);
 	        ModItems.RegisterItems(event.getRegistry());
+	        
+	        Main.logger.info("CREATING DYNAMIC SEEDS");
+	        DynamicPlants.CreateCropSeeds(event);
 	    }
 		
 		@SubscribeEvent

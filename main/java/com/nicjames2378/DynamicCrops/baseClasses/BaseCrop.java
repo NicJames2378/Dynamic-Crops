@@ -17,12 +17,10 @@ public class BaseCrop extends BlockCrops {
 		this.itemYield = yield;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
 		setRegistryName(registryName);
-		this.mycrop = seed;
 	}
-	public Item mycrop;
 	
 	@Override
-	protected Item getSeed() {
+	public Item getSeed() {
 		return itemSeed;
 	}
 	
