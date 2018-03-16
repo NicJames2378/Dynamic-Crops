@@ -34,15 +34,14 @@ public class Main {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;	
 	public static Logger logger;	
-	public static CreativeTabs modCreativeTab;
+	public static CreativeTabs modCreativeTab = new UICreativeTab(CreativeTabs.getNextID(), "creativetab");
 	
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		logger.info("DynamicCrops, ready for action!");
 		
-		modCreativeTab = new UICreativeTab(CreativeTabs.getNextID(), "creativetab");
-		ModBlocks.Initialize();		
+		//modCreativeTab = new UICreativeTab(CreativeTabs.getNextID(), "creativetab");	
 		
 		proxy.PreInit(event);
 	}

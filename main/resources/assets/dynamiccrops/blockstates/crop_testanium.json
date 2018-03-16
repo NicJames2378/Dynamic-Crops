@@ -1,0 +1,50 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cross"
+    },
+    "variants": {
+        "age": {
+            "0": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/0"
+                }
+            },
+            "1": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/1"
+                }
+            },
+            "2": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/2"
+                }
+            },
+            "3": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/3"
+                }
+            },
+            "4": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/4"
+                }
+            },
+            "5": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/5"
+                }
+            },
+            "6": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/6"
+                }
+            },
+            "7": {
+                "textures": {
+                    "cross": "dynamiccrops:blocks/crop_testanium/7"
+                }
+            }
+        }
+    }
+}
