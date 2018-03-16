@@ -1,9 +1,9 @@
 itemGroup.creativetab=Dynamic Crops
 
-tile.dynamiccrops.testanium.name=Testanium
-tile.dynamiccrops.randomium.name=Randomium
-tile.dynamiccrops.noideasium.name=NoIdeasium
-tile.dynamiccrops.anotherblock.name=AnotherBlockium
-tile.dynamiccrops.yetanotheroneium.name=YetAnotherOneium
+tile.dynamiccrops.block_testanium.name=Block of Testanium
+tile.dynamiccrops.randomium.name=Block of Randomium
+tile.dynamiccrops.noideasium.name=Block of NoIdeasium
+tile.dynamiccrops.anotherblock.name=Block of AnotherBlockium
+tile.dynamiccrops.yetanotheroneium.name=Block of YetAnotherOneium
 
 item.dynamiccrops.ingot_testanium.name=Testanium Ingot

@@ -13,6 +13,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
+	// Remember to add an item json for items!
 	public static BaseItem ingotTestanium = new BaseItem("ingot_testanium");
     
 	public static void Initialize() { // Add any items with no special nbt data here. They will be looped and generated automatically.
@@ -25,7 +26,7 @@ public class ModItems {
 		);
 	}
 	
-	public static void registerModels() {
+	public static void RegisterModels() {
 		ingotTestanium.registerItemModel();
 	}
 }
