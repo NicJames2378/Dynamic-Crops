@@ -68,13 +68,14 @@ public class Main {
 		@SubscribeEvent
 	    public static void RegisterItems(RegistryEvent.Register<Item> event) {
 	    	Main.logger.info("REGISTERING ITEMS");
-	        ModBlocks.RegisterItems(event);
+	        ModBlocks.RegisterBlockItems(event);
 	        ModItems.RegisterItems(event.getRegistry());
 	    }
 		
 		@SubscribeEvent
 		public static void RegisterItems(ModelRegistryEvent event) {
-			ModItems.registerModels();
+			ModBlocks.RegisterModels();
+			ModItems.RegisterModels();
 		}
 	}
 }

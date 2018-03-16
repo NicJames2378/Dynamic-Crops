@@ -18,7 +18,7 @@ public class ModBlocks {
 	
     protected static List<BaseBlock> blockList = new ArrayList<BaseBlock> ();
 	
-    public static BaseBlock testanium = new BaseBlock(Material.ROCK, "testanium");
+    public static BaseBlock testanium = new BaseBlock(Material.ROCK, "block_testanium");
     public static BaseBlock randomium = new BaseBlock(Material.ROCK, "randomium");
     public static BaseBlock noideasium = new BaseBlock(Material.ROCK, "noideasium");
     public static BaseBlock anotherblock = new BaseBlock(Material.ROCK, "anotherblock");
@@ -53,10 +53,15 @@ public class ModBlocks {
     		event.getRegistry().register(mb);
     	}
     }
-    
-    public static void RegisterItems(RegistryEvent.Register<Item> event) {
+      
+    public static void RegisterBlockItems(RegistryEvent.Register<Item> event) {
         for (BaseBlock mb : blockList) {
-    		event.getRegistry().register(new ItemBlock(mb).setRegistryName(mb.getUnlocalizedName()));
+    		//event.getRegistry().register(new ItemBlock(mb).setRegistryName(mb.getUnlocalizedName()));
+        	event.getRegistry().register(mb.createItemBlock());
     	}
+    }
+    
+    public static void RegisterModels() {
+    	testanium.registerItemModel(Item.getItemFromBlock(testanium));
     }
 }
