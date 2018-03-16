@@ -7,9 +7,10 @@ import com.nicjames2378.DynamicCrops.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher; //To declare variable ItemModelMesher mesher
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -46,14 +47,9 @@ public class ClientProxy extends CommonProxy {
 	public void PostInit(FMLPostInitializationEvent event) {
 		super.PostInit(event);
 	}
-		
-	@SubscribeEvent
-    public static void RegisterBlocks(RegistryEvent.Register<Block> event) {
-    	ModBlocks.RegisterBlocks(event);
-    }
-    
-	@SubscribeEvent
-    public static void RegisterItems(RegistryEvent.Register<Item> event) {
-    	ModBlocks.RegisterItems(event);
-    }
+	
+	@Override
+	public void registerItemRenderer(Item item, int meta, String id) {
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Reference.MOD_ID + ":" + id, "inventory"));
+	}
 }

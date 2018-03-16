@@ -31,6 +31,10 @@ public class CommonProxy {
     
 	}
 	
+	public void registerItemRenderer(Item item, int meta, String id) {
+		
+	}
+	
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         ModBlocks.RegisterBlocks(event);
