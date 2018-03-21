@@ -37,13 +37,19 @@ public class DynamicPlants {
 	protected static Item[] pseudoWhitelist = new Item[] {
 			(Items.APPLE),
 			(Items.COOKIE),
-			(Items.REPEATER)
+			(Items.REPEATER),
+			(Items.CAKE),
+			(Items.DIAMOND),
+			(Items.DIAMOND_HOE)
 	};
 	
 	protected static int[] cols = new int[] {
 			0xff0000,
 			0x663300,
-			0xcccccc
+			0xcccccc,
+			0xff33cc,
+			0x00ccff,
+			0x00ccff
 	};
 	
 	private static List<BaseCrop> cropsList = new ArrayList<BaseCrop>();
