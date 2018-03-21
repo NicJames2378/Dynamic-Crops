@@ -17,7 +17,6 @@ public class BaseBlock extends Block {
 		this.name = registryName;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
 		setRegistryName(registryName);
-		setCreativeTab(Main.modCreativeTab);
 		setHardness(hardness);
 		setResistance(resistance);
 	}
@@ -27,7 +26,6 @@ public class BaseBlock extends Block {
 		this.name = registryName;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
 		setRegistryName(registryName);
-		setCreativeTab(Main.modCreativeTab);
 		setHardness(3f);
 		setResistance(5f);
 	}
@@ -40,7 +38,7 @@ public class BaseBlock extends Block {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 	
-	@Override
+	@Override // Overridden to allow chaining
 	public BaseBlock setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;

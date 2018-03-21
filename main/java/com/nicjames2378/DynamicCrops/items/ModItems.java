@@ -1,18 +1,12 @@
 package com.nicjames2378.DynamicCrops.items;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseItem;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
 import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
@@ -23,6 +17,7 @@ public class ModItems {
 	// Forge is not made to natively make the crops at runtime, but it is a requirement to do what we want, so this is our workaround.
 	// Do NOT uncomment the code after the seed line. It is only there to reference how NOT to do it (in this mod anyways!)
 	public static BaseSeed seedTestanium;// = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium");
+	public static BaseSeed seedTestaniumtwo;
 	
 	public static void RegisterCropSeeds() {
 		seedTestanium = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium", -1);
@@ -35,6 +30,9 @@ public class ModItems {
 				ingotTestanium,
 				seedTestanium
 		);
+		
+		ingotTestanium.setCreativeTab(Main.modCreativeTab);
+		seedTestanium.setCreativeTab(Main.modCreativeTab);		
 	}
 	
 	public static void RegisterModels() {

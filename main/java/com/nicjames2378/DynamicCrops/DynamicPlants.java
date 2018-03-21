@@ -4,21 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.nicjames2378.DynamicCrops.baseClasses.BaseCrop;
-import com.nicjames2378.DynamicCrops.baseClasses.BaseItem;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
-import com.nicjames2378.DynamicCrops.items.ModItems;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DynamicPlants {
 	/*
@@ -53,35 +46,34 @@ public class DynamicPlants {
 			0xcccccc
 	};
 	
-	protected static List<BaseCrop> cropsList = new ArrayList<BaseCrop>();
-	protected static List<BaseSeed> seedsList = new ArrayList<BaseSeed>();
+	private static List<BaseCrop> cropsList = new ArrayList<BaseCrop>();
+	private static List<BaseSeed> seedsList = new ArrayList<BaseSeed>();
 	
-	public static void CreateCropBlocks(RegistryEvent.Register<Block> event) {
+	public List<BaseSeed> getSeedsList() {
+		return seedsList;
+	}
+	
+	public List<BaseCrop> getCropsList() {
+		return cropsList;
+	}
+	
+	public static void createCropBlocks(RegistryEvent.Register<Block> event) {
 		for(Item i : pseudoWhitelist) {
 			BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getUnlocalizedName());
 			cropsList.add(newCrop);
 			event.getRegistry().register(newCrop);
 		}		
-	}
-
-	public static void CreateCropSeeds(RegistryEvent.Register<Item> event) {
-		Main.logger.info("\n\n\n\n");
+	}	
+	
+	public static void createCropSeeds(RegistryEvent.Register<Item> event) {
 		for(int b = 0; b < cropsList.size(); b++) {
 			BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND,  "dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
-			newSeed.SetIsDynamic(true);
-	        ItemStack is = new ItemStack(newSeed);
-	        
-	        //is.setStackDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])));//.getTagCompound().setString(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])), "8brickdmg");
-
-			
+			newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
+			newSeed.setCreativeTab(Main.modCreativeTab);
 			cropsList.get(b).itemSeed = newSeed;
 			seedsList.add(newSeed);
 			event.getRegistry().register(newSeed);
-			
-			Main.logger.info("Crop " + cropsList.get(b).getUnlocalizedName() + " has seed " + cropsList.get(b).getSeed());
-			Main.logger.info("Seed " + seedsList.get(b).getUnlocalizedName() + " has crop " + seedsList.get(b).GetCropBlock() +"\n");
-			
 			newSeed.registerItemModel();
 		}
-	}		
+	}
 }

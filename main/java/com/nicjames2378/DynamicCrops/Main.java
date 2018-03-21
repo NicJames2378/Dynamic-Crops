@@ -1,11 +1,8 @@
 package com.nicjames2378.DynamicCrops;
 
-import java.lang.reflect.Method;
-
 import org.apache.logging.log4j.Logger;
 
 import com.nicjames2378.DynamicCrops.GUI.UICreativeTab;
-import com.nicjames2378.DynamicCrops.baseClasses.BaseBlock;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
 import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.items.ModItems;
@@ -15,7 +12,6 @@ import com.nicjames2378.DynamicCrops.utils.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -62,25 +58,26 @@ public class Main {
 	public static class RegistrationHandler {
 		@SubscribeEvent
 		public static void RegisterBlocks(RegistryEvent.Register<Block> event) {
-	    	Main.logger.info("REGISTERING BLOCKS");	    	
+	    	Main.logger.info(("REGISTRATION HANDLER: Registering Blocks").toUpperCase());	    	
 	    	ModBlocks.RegisterBlocks(event);
 	    	
-	    	Main.logger.info("CREATING DYNAMIC CROPS");
-	    	DynamicPlants.CreateCropBlocks(event);
+	    	Main.logger.info(("REGISTRATION HANDLER: Creating Dynamic Crops").toUpperCase());
+	    	DynamicPlants.createCropBlocks(event);
 	    }
 	    
 		@SubscribeEvent
 	    public static void RegisterItems(RegistryEvent.Register<Item> event) {
-	    	Main.logger.info("REGISTERING ITEMS");
+	    	Main.logger.info(("REGISTRATION HANDLER: Registering Items").toUpperCase());
 	        ModBlocks.RegisterBlockItems(event);
 	        ModItems.RegisterItems(event.getRegistry());
 	        
-	        Main.logger.info("CREATING DYNAMIC SEEDS");
-	        DynamicPlants.CreateCropSeeds(event);
+	        Main.logger.info(("REGISTRATION HANDLER: Creating Dynamic Seeds").toUpperCase());
+	        DynamicPlants.createCropSeeds(event);
 	    }
 		
 		@SubscribeEvent
 		public static void RegisterItems(ModelRegistryEvent event) {
+	        Main.logger.info(("REGISTRATION HANDLER: Registering Models").toUpperCase());
 			ModBlocks.RegisterModels();
 			ModItems.RegisterModels();
 		}

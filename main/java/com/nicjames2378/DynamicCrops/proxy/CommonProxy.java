@@ -1,15 +1,12 @@
 package com.nicjames2378.DynamicCrops.proxy;
 
-import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -34,14 +31,4 @@ public class CommonProxy {
 	public void registerItemRenderer(Item item, int meta, String id) {
 		
 	}
-	
-    @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        ModBlocks.RegisterBlocks(event);
-    }
-
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-    	ModBlocks.RegisterBlockItems(event);
-    }
 }
