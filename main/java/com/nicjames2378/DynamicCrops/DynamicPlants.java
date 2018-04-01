@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.nicjames2378.DynamicCrops.baseClasses.BaseCrop;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
+import com.nicjames2378.DynamicCrops.config.Configurator;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -32,6 +33,8 @@ public class DynamicPlants {
 	 * ModItems Register Models
 	 * 		seedTest registerItemModel
 	 */
+		
+	private static boolean usePseudo = true;
 	
 	//TODO: Add configuration file whitelist for what items to make crops for
 	protected static Item[] pseudoWhitelist = new Item[] {
@@ -64,22 +67,45 @@ public class DynamicPlants {
 	}
 	
 	public static void createCropBlocks(RegistryEvent.Register<Block> event) {
-		for(Item i : pseudoWhitelist) {
-			BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getUnlocalizedName());
-			cropsList.add(newCrop);
-			event.getRegistry().register(newCrop);
-		}		
+		if (usePseudo) {
+			for(Item i : pseudoWhitelist) {
+				BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getUnlocalizedName());
+				cropsList.add(newCrop);
+				event.getRegistry().register(newCrop);
+			}	
+		} else {
+			for(String s : Configurator.CATEGORY_WHITELIST.whitelist) {
+				Item i = Item.getByNameOrId(s);
+				BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getUnlocalizedName());
+				cropsList.add(newCrop);
+				event.getRegistry().register(newCrop);
+			}	
+		}
 	}	
 	
 	public static void createCropSeeds(RegistryEvent.Register<Item> event) {
-		for(int b = 0; b < cropsList.size(); b++) {
-			BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND,  "dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
-			newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
-			newSeed.setCreativeTab(Main.modCreativeTab);
-			cropsList.get(b).itemSeed = newSeed;
-			seedsList.add(newSeed);
-			event.getRegistry().register(newSeed);
-			newSeed.registerItemModel();
+		if (usePseudo) {
+			for(int b = 0; b < cropsList.size(); b++) {
+				BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND, 
+						"dseed_" + Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]).getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
+				newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
+				newSeed.setCreativeTab(Main.modCreativeTab);
+				cropsList.get(b).itemSeed = newSeed;
+				seedsList.add(newSeed);
+				event.getRegistry().register(newSeed);
+				newSeed.registerItemModel();
+			}
+		} else {
+			for(int b = 0; b < cropsList.size(); b++) {
+				BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND, 
+						"dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
+				newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
+				newSeed.setCreativeTab(Main.modCreativeTab);
+				cropsList.get(b).itemSeed = newSeed;
+				seedsList.add(newSeed);
+				event.getRegistry().register(newSeed);
+				newSeed.registerItemModel();
+			}
 		}
 	}
 }

@@ -37,9 +37,6 @@ public class Main {
 	public static void PreInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		logger.info("DynamicCrops, ready for action!");
-		
-		//modCreativeTab = new UICreativeTab(CreativeTabs.getNextID(), "creativetab");	
-		
 		proxy.PreInit(event);
 	}
 	

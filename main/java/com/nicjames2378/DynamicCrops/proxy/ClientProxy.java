@@ -2,7 +2,6 @@ package com.nicjames2378.DynamicCrops.proxy;
 
 import java.io.File;
 
-import com.nicjames2378.DynamicCrops.Config;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

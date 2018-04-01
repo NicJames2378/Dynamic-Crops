@@ -2,10 +2,10 @@ package com.nicjames2378.DynamicCrops.proxy;
 
 import java.io.File;
 
-import com.nicjames2378.DynamicCrops.Config;
 import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.utils.Reference;
+import com.nicjames2378.DynamicCrops.config.Configurator;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -25,9 +25,10 @@ public class CommonProxy {
 	
 	public void PreInit(FMLPreInitializationEvent event) {
 		Main.logger.info("Proxy PreInit");
-        File directory = event.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), Reference.CONFIG_NAME));
-        Config.readConfig();
+        //File directory = event.getModConfigurationDirectory();
+        //config = new Configuration(new File(directory.getPath(), Reference.CONFIG_NAME));
+        //Config.readConfig();
+		Configurator.CheckIfChangesNeeded();
 	}
 	
 	public void Init(FMLInitializationEvent event) {
@@ -36,9 +37,9 @@ public class CommonProxy {
 	
 	public void PostInit(FMLPostInitializationEvent event) {
 		Main.logger.info("Proxy PostInit");
-		if (config.hasChanged()) {
-            config.save();
-        }
+		//if (config.hasChanged()) {
+        //    config.save();
+        //}
 	}
 	
 	public void registerItemRenderer(Item item, int meta, String id) {
