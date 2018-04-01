@@ -14,16 +14,15 @@ public class BaseItem extends Item {
 		this.name = registryName;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
 		setRegistryName(registryName);
-		setCreativeTab(Main.modCreativeTab);
+	}
+	
+	@Override // Overridden to allow chaining
+	public BaseItem setCreativeTab(CreativeTabs tab) {
+		super.setCreativeTab(tab);
+		return this;
 	}
 	
 	public void registerItemModel() {
 		Main.proxy.registerItemRenderer(this, 0, name );
-	}
-	
-	@Override
-	public BaseItem setCreativeTab(CreativeTabs tab) {
-		super.setCreativeTab(tab);
-		return this;
 	}
 }

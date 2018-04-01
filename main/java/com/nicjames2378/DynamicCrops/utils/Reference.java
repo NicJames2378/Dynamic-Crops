@@ -8,7 +8,5 @@ public class Reference {
 	public static final String ACCEPTED_VERSIONS = "[1.12.2]";
 	public static final String DEPENDENCIES = "required-after:forge@[14.23.2.2611]";
 	public static final String COMMON_PROXY_CLASS = "com.nicjames2378.DynamicCrops.proxy.CommonProxy";
-	public static final String CLIENT_PROXY_CLASS = "com.nicjames2378.DynamicCrops.proxy.ClientProxy";	
-	
-	
+	public static final String CLIENT_PROXY_CLASS = "com.nicjames2378.DynamicCrops.proxy.ClientProxy";
 }

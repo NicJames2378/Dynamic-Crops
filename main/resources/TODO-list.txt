@@ -1,7 +1,7 @@
 @TheAlchemist606:
 // Use this file to keep a list of everything you think we need to work on. Put your tilde (~) next to your 
 // ideas that you list. If you want to leave comments on one of my ideas, put a tab and your symbol. I'll 
-// be checking this file any time I go to work on the mod.
+// be checking this file any time I pull a commit.
 //
 // =====Example=====
 // +Do thing #1
@@ -13,13 +13,22 @@
 
 
 
-+Add functionality to procedurally create seeds
-+Add functionality to procedurally create crops
++DONE - Add functionality to procedurally create seeds
++DONE - Add functionality to procedurally create crops
 +Add functionality to procedurally texture crop plants (way to use base plant included already while changing stage 7 per item?)
-+Add functionality to procedurally texture seeds (way to change texture HSV on the fly?)
+    +Pretty sure this will require a special block instead of using the current crop plant. I can't figure out how to use overlays 
+      or subtextures in crops, but blocks seem easily capable?
+      
++DONE - Add functionality to procedurally texture seeds (way to change texture HSV on the fly?)
+    +Add code to get color from itemstack instead of assigning random. Then I'll just need the color hex values passed into the current system
+    
 +Add command for debug purposes
     +/dc giveseed ITEM
     +EX: /dc giveseed minecraft:plank#2 (gives spruce wood plank seeds)
     
 +Add machine for making seeds
 +Implement system for balancing seeds (EMC style item worth to determine seed duplication chance and item output?)
++Methods to configure crop drops
++Methods to configure growth time (or implement a subitem system where you have to craft into next items? think essence from MA)
++Change testanium things to "Nullified" things. AKA, rename them in code and game to be a placeholder in the event a seed is removed, 
+  and needs reverted to something to prevent errors.
