@@ -2,6 +2,7 @@ package com.nicjames2378.DynamicCrops;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.nicjames2378.DynamicCrops.baseClasses.BaseCrop;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
@@ -34,7 +35,7 @@ public class DynamicPlants {
 	 * 		seedTest registerItemModel
 	 */
 		
-	private static boolean usePseudo = true;
+	private static boolean usePseudo = false;
 	
 	//TODO: Add configuration file whitelist for what items to make crops for
 	protected static Item[] pseudoWhitelist = new Item[] {
@@ -76,7 +77,7 @@ public class DynamicPlants {
 		} else {
 			for(String s : Configurator.CATEGORY_WHITELIST.whitelist) {
 				Item i = Item.getByNameOrId(s);
-				BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getUnlocalizedName());
+				BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getRegistryName());
 				cropsList.add(newCrop);
 				event.getRegistry().register(newCrop);
 			}	
@@ -87,7 +88,7 @@ public class DynamicPlants {
 		if (usePseudo) {
 			for(int b = 0; b < cropsList.size(); b++) {
 				BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND, 
-						"dseed_" + Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]).getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
+						"dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
 				newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
 				newSeed.setCreativeTab(Main.modCreativeTab);
 				cropsList.get(b).itemSeed = newSeed;
@@ -96,10 +97,16 @@ public class DynamicPlants {
 				newSeed.registerItemModel();
 			}
 		} else {
+			Random random = new Random();
 			for(int b = 0; b < cropsList.size(); b++) {
+				int nextInt = random.nextInt(256*256*256);
+
+		        Main.logger.info("DynamicPlants: " + Configurator.CATEGORY_WHITELIST.whitelist[b] + ", " + nextInt);
+		        
 				BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND, 
-						"dseed_" + pseudoWhitelist[b].getUnlocalizedName(), cols[b]); //TODO: Dynamically calculate seed color from item
-				newSeed.setIsDynamic(true).setDisplayName(pseudoWhitelist[b].getItemStackDisplayName(new ItemStack(pseudoWhitelist[b])) + " Seeds");
+						"dseed_" + Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]).getRegistryName(), 0x00ccff); //TODO: Dynamically calculate seed color from item
+				newSeed.setIsDynamic(true).setDisplayName(Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b])
+						.getItemStackDisplayName(new ItemStack(Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]))) + " Seeds");
 				newSeed.setCreativeTab(Main.modCreativeTab);
 				cropsList.get(b).itemSeed = newSeed;
 				seedsList.add(newSeed);
