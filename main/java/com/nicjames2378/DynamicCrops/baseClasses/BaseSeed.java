@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.nicjames2378.DynamicCrops.IColorable;
 import com.nicjames2378.DynamicCrops.Main;
+import com.nicjames2378.DynamicCrops.config.Configurator;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.block.Block;
@@ -32,13 +33,16 @@ public class BaseSeed extends ItemSeeds implements IColorable {
 		this.cb = cropBlock;
 		this.color = col;
 		setUnlocalizedName(Reference.MOD_ID + "." + registryName);
+
 		setRegistryName(registryName);
 	}
 	
 	public void registerItemModel() {
+		Main.logger.info("RIM: " + isDynamic + " - " + this.getRegistryName() + ", " + this.getUnlocalizedName());
 		if(isDynamic) {
 			COLORED_ITEMS.add(this);
-			String itemName = this.getRegistryName().getResourceDomain() + ":dseed";// + (this.isDynamic ? "dseed" : "seed");
+			// Tells the item to get it's texture from 'dynamiccrops:dseed' instead of, for example, 'dseed_minecraft:record_blocks'
+			String itemName = Reference.MOD_ID + ":dseed";// + (this.isDynamic ? "dseed" : "seed");
 			ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(itemName, "inventory"));
 		} else {
 			ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));

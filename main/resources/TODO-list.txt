@@ -18,8 +18,10 @@
 +Add functionality to procedurally texture crop plants (way to use base plant included already while changing stage 7 per item?)
     +Pretty sure this will require a special block instead of using the current crop plant. I can't figure out how to use overlays 
       or subtextures in crops, but blocks seem easily capable?
-+Add functionality to procedurally texture seeds (way to change texture HSV on the fly?)
-    +Need code to get a color from items first. Then I'll just need the color hex values passed into the current system
+      
++DONE - Add functionality to procedurally texture seeds (way to change texture HSV on the fly?)
+    +Add code to get color from itemstack instead of assigning random. Then I'll just need the color hex values passed into the current system
+    
 +Add command for debug purposes
     +/dc giveseed ITEM
     +EX: /dc giveseed minecraft:plank#2 (gives spruce wood plank seeds)

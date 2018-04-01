@@ -97,16 +97,15 @@ public class Configurator {
 	}
 
 	public static List<String> pruneWhitelist(List list) {
-		List<String> newList = list;
-		
 		// Don't make seeds for these things. Trust me, just don't.
+		// TODO: Add items here that require special data to be functional (ex: spawners), or that just don't make sense to have seeds for (snow_layer, anyone?)
 		list.remove("minecraft:air");
 		list.remove("minecraft:bedrock");
 		list.remove("minecraft:mob_spawner");
 		list.remove("minecraft:snow_layer");
 		list.remove("minecraft:monster_egg");
-		list.remove("minecraft:end_portal_frame");
-		list.remove("minecraft:dragon_egg");
+		//list.remove("minecraft:end_portal_frame");
+		//list.remove("minecraft:dragon_egg");
 		list.remove("minecraft:command_block");
 		list.remove("minecraft:barrier");
 		list.remove("minecraft:grass_path");
@@ -114,19 +113,19 @@ public class Configurator {
 		list.remove("minecraft:chain_command_block");
 		list.remove("minecraft:structure_void");
 		list.remove("minecraft:spawn_egg");
-		list.remove("minecraft:writable_book");
-		list.remove("minecraft:map");
+		//list.remove("minecraft:writable_book");
+		//list.remove("minecraft:map");
 		list.remove("minecraft:skull");
-		list.remove("minecraft:fireworks");
+		//list.remove("minecraft:fireworks");
 		list.remove("minecraft:enchanted_book");
 		list.remove("minecraft:command_block_minecart");
-		list.remove("minecraft:banner");
+		//list.remove("minecraft:banner");
 		list.remove("minecraft:splash_potion");
 		list.remove("minecraft:spectral_arrow");
 		list.remove("minecraft:tipped_arrow");
 		list.remove("minecraft:lingering_potion");
 		
-		return newList;
+		return list;
 	}
 	
 	
