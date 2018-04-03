@@ -12,34 +12,34 @@ import net.minecraftforge.event.RegistryEvent;
 
 public class ModBlocks {
 	
-    public static BaseBlock testanium = new BaseBlock(Material.ROCK, "block_testanium");    
+    public static BaseBlock blockNullanium = new BaseBlock(Material.ROCK, "block_nullanium");    
     
     // Due to a workaround I implemented to prevent needing a separate class for each crop, you need to re-register the
     // seeds for each crop in the RegisterSeedsToCrops function below. Sorry for the inconvenience, but I don't know of
     // an alternative right now. (NOTE: Only applies to manually created ones)
-    public static BaseCrop cropTestanium = new BaseCrop(ModItems.seedTestanium, ModItems.ingotTestanium, "crop_testanium");
+    public static BaseCrop cropNullanium = new BaseCrop(ModItems.seedNullanium, ModItems.ingotNullanium, "crop_nullanium");
 	
 	public static void RegisterSeedsToCrops() {
-		cropTestanium.itemSeed = ModItems.seedTestanium;
+		cropNullanium.itemSeed = ModItems.seedNullanium;
 	}
     
     public static void RegisterBlocks(RegistryEvent.Register<Block> event) {   	
     	event.getRegistry().registerAll(
-    		testanium,
-    		cropTestanium
+    		blockNullanium,
+    		cropNullanium
     	);
     	
     	// Register all blocks to the creative tab here
-    	testanium.setCreativeTab(Main.modCreativeTab);
+    	blockNullanium.setCreativeTab(Main.modCreativeTab);
     }
     
     public static void RegisterBlockItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(
-        	testanium.createItemBlock()
+        	blockNullanium.createItemBlock()
         );
     }
     
     public static void RegisterModels() {
-    	testanium.registerItemModel(Item.getItemFromBlock(testanium));
+    	blockNullanium.registerItemModel(Item.getItemFromBlock(blockNullanium));
     }
 }

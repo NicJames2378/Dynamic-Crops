@@ -1,7 +1,7 @@
 itemGroup.creativetab=Dynamic Crops
 
-tile.dynamiccrops.block_testanium.name=Block of Testanium
+tile.dynamiccrops.block_nullanium.name=Block of Nullanium
 
-item.dynamiccrops.ingot_testanium.name=Testanium Ingot
+item.dynamiccrops.ingot_nullanium.name=Nullanium Ingot
 
-item.dynamiccrops.seed_testanium.name=Testanium Seeds
+item.dynamiccrops.seed_nullanium.name=Nullanium Seeds
