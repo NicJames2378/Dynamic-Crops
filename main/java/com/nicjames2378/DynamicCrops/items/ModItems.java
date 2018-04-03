@@ -11,32 +11,31 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
 	// Remember to add an item json for items!
-	public static BaseItem ingotTestanium = new BaseItem("ingot_testanium");
+	public static BaseItem ingotNullanium = new BaseItem("ingot_nullanium");
 	
 	// All seeds must be registered in the method below to their crops and all crops to their seeds in ModBlocks.RegisterSeedsToCrops!!!!
 	// Forge is not made to natively make the crops at runtime, but it is a requirement to do what we want, so this is our workaround.
 	// Do NOT uncomment the code after the seed line. It is only there to reference how NOT to do it (in this mod anyways!)
-	public static BaseSeed seedTestanium;// = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium");
-	public static BaseSeed seedTestaniumtwo;
+	public static BaseSeed seedNullanium;// = new BaseSeed(ModBlocks.cropNullanium, Blocks.FARMLAND, "seed_nullanium");
 	
 	public static void RegisterCropSeeds() {
-		seedTestanium = new BaseSeed(ModBlocks.cropTestanium, Blocks.FARMLAND, "seed_testanium", -1);
+		seedNullanium = new BaseSeed(ModBlocks.cropNullanium, Blocks.FARMLAND, "seed_nullanium", -1);
 	}
 	
 	public static void RegisterItems(IForgeRegistry<Item> registry) {
 		RegisterCropSeeds();
 		ModBlocks.RegisterSeedsToCrops();
 		registry.registerAll(
-				ingotTestanium,
-				seedTestanium
+				ingotNullanium,
+				seedNullanium
 		);
 		
-		ingotTestanium.setCreativeTab(Main.modCreativeTab);
-		seedTestanium.setCreativeTab(Main.modCreativeTab);		
+		ingotNullanium.setCreativeTab(Main.modCreativeTab);
+		seedNullanium.setCreativeTab(Main.modCreativeTab);		
 	}
 	
 	public static void RegisterModels() {
-		ingotTestanium.registerItemModel();
-		seedTestanium.registerItemModel();
+		ingotNullanium.registerItemModel();
+		seedNullanium.registerItemModel();
 	}
 }

@@ -86,11 +86,9 @@ public class DynamicPlants {
 				newSeed.registerItemModel();
 			}
 		} else {
-			Random random = new Random();
 			for (int b = 0; b < cropsList.size(); b++) {
-				int nextInt = random.nextInt(256 * 256 * 256);// TODO: Dynamically calculate seed color from item
 				BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND,
-						"dseed_" + Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]).getRegistryName(), nextInt);
+						"dseed_" + Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]).getRegistryName(), getItemColor());
 				newSeed.setIsDynamic(true).setDisplayName(Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b])
 						.getItemStackDisplayName(new ItemStack(Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]))) + " Seeds");
 				newSeed.setCreativeTab(Main.modCreativeTab);
@@ -101,5 +99,10 @@ public class DynamicPlants {
 				newSeed.registerItemModel();
 			}
 		}
+	}
+	
+	private static int getItemColor() {
+		Random random = new Random();
+		return random.nextInt(256 * 256 * 256);// TODO: Dynamically calculate seed color from item
 	}
 }

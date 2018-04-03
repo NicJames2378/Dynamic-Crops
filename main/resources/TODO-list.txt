@@ -22,13 +22,15 @@
 +DONE - Add functionality to procedurally texture seeds (way to change texture HSV on the fly?)
     +Add code to get color from itemstack instead of assigning random. Then I'll just need the color hex values passed into the current system
     
-+Add command for debug purposes
-    +/dc giveseed ITEM
-    +EX: /dc giveseed minecraft:plank#2 (gives spruce wood plank seeds)
+V2! +Add command for debug purposes
+        +/dc giveseed ITEM
+        +EX: /dc giveseed minecraft:plank#2 (gives spruce wood plank seeds)
     
++Make an API to let people add their own seeds to the whitelist on a first-run basis. Needs implemented last likely.
 +Add machine for making seeds
 +Implement system for balancing seeds (EMC style item worth to determine seed duplication chance and item output?)
 +Methods to configure crop drops
 +Methods to configure growth time (or implement a subitem system where you have to craft into next items? think essence from MA)
-+Change testanium things to "Nullified" things. AKA, rename them in code and game to be a placeholder in the event a seed is removed, 
+DONE - +Change testanium things to "Nullified" things. AKA, rename them in code and game to be a placeholder in the event a seed is removed, 
   and needs reverted to something to prevent errors.
+  DONE - +Correction: Errors will be thrown so servers know something has happened. However, testanium will be renamed. Likely removed from creative tabs as well.
