@@ -55,26 +55,26 @@ public class Main {
 	public static class RegistrationHandler {
 		@SubscribeEvent
 		public static void RegisterBlocks(RegistryEvent.Register<Block> event) {
-	    	Main.logger.info(("REGISTRATION HANDLER: Registering Blocks").toUpperCase());	    	
+	    	Main.logger.debug(("REGISTRATION HANDLER: Registering Blocks").toUpperCase());	    	
 	    	ModBlocks.RegisterBlocks(event);
 	    	
-	    	Main.logger.info(("REGISTRATION HANDLER: Creating Dynamic Crops").toUpperCase());
+	    	Main.logger.debug(("REGISTRATION HANDLER: Creating Dynamic Crops").toUpperCase());
 	    	DynamicPlants.createCropBlocks(event);
 	    }
 	    
 		@SubscribeEvent
 	    public static void RegisterItems(RegistryEvent.Register<Item> event) {
-	    	Main.logger.info(("REGISTRATION HANDLER: Registering Items").toUpperCase());
+	    	Main.logger.debug(("REGISTRATION HANDLER: Registering Items").toUpperCase());
 	        ModBlocks.RegisterBlockItems(event);
 	        ModItems.RegisterItems(event.getRegistry());
 	        
-	        Main.logger.info(("REGISTRATION HANDLER: Creating Dynamic Seeds").toUpperCase());
+	        Main.logger.debug(("REGISTRATION HANDLER: Creating Dynamic Seeds").toUpperCase());
 	        DynamicPlants.createCropSeeds(event);
 	    }
 		
 		@SubscribeEvent
 		public static void RegisterItems(ModelRegistryEvent event) {
-	        Main.logger.info(("REGISTRATION HANDLER: Registering Models").toUpperCase());
+	        Main.logger.debug(("REGISTRATION HANDLER: Registering Models").toUpperCase());
 			ModBlocks.RegisterModels();
 			ModItems.RegisterModels();
 		}

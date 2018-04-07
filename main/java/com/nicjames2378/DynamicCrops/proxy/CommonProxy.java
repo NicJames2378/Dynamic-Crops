@@ -9,6 +9,7 @@ import com.nicjames2378.DynamicCrops.config.Configurator;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +25,7 @@ public class CommonProxy {
     public static Configuration config;	
 	
 	public void PreInit(FMLPreInitializationEvent event) {
-		Main.logger.info("Proxy PreInit");
+		Main.logger.debug("Proxy PreInit");
         //File directory = event.getModConfigurationDirectory();
         //config = new Configuration(new File(directory.getPath(), Reference.CONFIG_NAME));
         //Config.readConfig();
@@ -32,17 +33,21 @@ public class CommonProxy {
 	}
 	
 	public void Init(FMLInitializationEvent event) {
-		Main.logger.info("Proxy Init");
+		Main.logger.debug("Proxy Init");
 	}	
 	
 	public void PostInit(FMLPostInitializationEvent event) {
-		Main.logger.info("Proxy PostInit");
+		Main.logger.debug("Proxy PostInit");
 		//if (config.hasChanged()) {
         //    config.save();
         //}
 	}
 	
 	public void registerItemRenderer(Item item, int meta, String id) {
-		Main.logger.info("Proxy RegisterItemRenderer");
+		Main.logger.debug("Proxy RegisterItemRenderer");
+	}
+	
+	public static int getStackColor(ItemStack stack) {
+		return 0;
 	}
 }

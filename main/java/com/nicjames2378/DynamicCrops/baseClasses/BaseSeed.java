@@ -24,7 +24,7 @@ public class BaseSeed extends ItemSeeds implements IColorable {
 	private String displayName;
 	private Block cb;
 	private int color = -1;
-	private boolean isDynamic = false;
+	public boolean isDynamic = false;
 	private static List<Item> COLORED_ITEMS = new ArrayList<>();
 
 	public BaseSeed(Block cropBlock, Block soilBlock, String registryName, int col) {
@@ -38,7 +38,7 @@ public class BaseSeed extends ItemSeeds implements IColorable {
 	}
 	
 	public void registerItemModel() {
-		Main.logger.info("RIM: " + isDynamic + " - " + this.getRegistryName() + ", " + this.getUnlocalizedName());
+		Main.logger.debug("RIM: (" + isDynamic + ") " + this.getRegistryName() + ", " + this.getUnlocalizedName());
 		if(isDynamic) {
 			COLORED_ITEMS.add(this);
 			// Tells the item to get it's texture from 'dynamiccrops:dseed' instead of, for example, 'dseed_minecraft:record_blocks'

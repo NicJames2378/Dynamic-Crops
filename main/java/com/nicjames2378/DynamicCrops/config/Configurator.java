@@ -60,7 +60,7 @@ public class Configurator {
 	
 	// Code below this point is not strictly for making the config, but rather validating and setting values in code for defaults, etc.
     public static void CheckIfChangesNeeded() {
-    	Main.logger.info("Configurator: Checking for needed changes!");
+    	Main.logger.debug("Configurator: Checking for needed changes!");
     	boolean hasChanged = false;
     	
     	if (CATEGORY_GENERAL.resetWhitelist) {
@@ -81,7 +81,7 @@ public class Configurator {
     	
     	for (Item i : itemsList) {
     		if ( i.getRegistryName().toString().toLowerCase().contains("minecraft".toLowerCase()) ) {
-    			Main.logger.info("Item: " + i.getRegistryName());
+    			Main.logger.debug("Item: " + i.getRegistryName());
     			list.add(i.getRegistryName().toString());
     		}
     	}
