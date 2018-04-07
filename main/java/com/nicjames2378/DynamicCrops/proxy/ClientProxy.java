@@ -1,25 +1,21 @@
 package com.nicjames2378.DynamicCrops.proxy;
 
-import java.awt.Color;
-import java.io.File;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import com.nicjames2378.DynamicCrops.DynamicPlants;
 import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
 import com.nicjames2378.DynamicCrops.utils.Reference;
-import org.apache.commons.lang3.math.NumberUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.IResourceManagerReloadListener;
-import net.minecraft.init.Items;
 import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

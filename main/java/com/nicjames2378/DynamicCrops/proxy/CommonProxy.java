@@ -1,22 +1,16 @@
 package com.nicjames2378.DynamicCrops.proxy;
 
-import java.io.File;
-
 import com.nicjames2378.DynamicCrops.Main;
-import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
-import com.nicjames2378.DynamicCrops.utils.Reference;
 import com.nicjames2378.DynamicCrops.config.Configurator;
+import com.nicjames2378.DynamicCrops.utils.Reference;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid=Reference.MOD_ID, value = Side.SERVER)

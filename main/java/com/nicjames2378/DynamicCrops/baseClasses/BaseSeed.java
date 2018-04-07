@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.nicjames2378.DynamicCrops.IColorable;
 import com.nicjames2378.DynamicCrops.Main;
-import com.nicjames2378.DynamicCrops.config.Configurator;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.block.Block;
