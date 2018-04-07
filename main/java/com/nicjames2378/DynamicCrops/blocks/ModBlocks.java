@@ -7,7 +7,9 @@ import com.nicjames2378.DynamicCrops.items.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 
 public class ModBlocks {
@@ -17,10 +19,14 @@ public class ModBlocks {
     // Due to a workaround I implemented to prevent needing a separate class for each crop, you need to re-register the
     // seeds for each crop in the RegisterSeedsToCrops function below. Sorry for the inconvenience, but I don't know of
     // an alternative right now. (NOTE: Only applies to manually created ones)
-    public static BaseCrop cropNullanium = new BaseCrop(ModItems.seedNullanium, ModItems.ingotNullanium, "crop_nullanium");
+    public static BaseCrop cropNullanium = new BaseCrop(new ItemStack(ModItems.seedNullanium, 1), 
+    		new ItemStack[] {
+    				new ItemStack(ModItems.ingotNullanium, 1),
+    				new ItemStack(Blocks.DIRT, 1)
+    		}, "crop_nullanium");
 	
 	public static void RegisterSeedsToCrops() {
-		cropNullanium.itemSeed = ModItems.seedNullanium;
+		cropNullanium.setSeed(new ItemStack(ModItems.seedNullanium, 1));
 	}
     
     public static void RegisterBlocks(RegistryEvent.Register<Block> event) {   	

@@ -55,7 +55,7 @@ public class ClientProxy extends CommonProxy {
             if (seed.isDynamic) {
             	int seedIndex = DynamicPlants.getSeedsList().indexOf(seed);
             	
-                ItemStack base = new ItemStack(DynamicPlants.getCropsList().get(seedIndex).itemYield); //seed.getInputItems().get(0);
+                ItemStack base = new ItemStack(DynamicPlants.getCropsList().get(seedIndex).getCrop()); //seed.getInputItems().get(0);
                 int color = getStackColor(base);
                 seed.setColor(color);
                 Main.logger.debug("Generated color {} for seed {} based on the stack {}", color, seed.getRegistryName(), base);

@@ -34,7 +34,7 @@ V2! +Add command for debug purposes
 
 V2! +Implement system for balancing seeds (EMC style item worth to determine seed duplication chance and item output?)
 
-+Methods to configure crop drops
++DONE - +Methods to configure crop drops
 
 +Methods to configure growth time (or implement a subitem system where you have to craft into next items? think essence from MA)
 

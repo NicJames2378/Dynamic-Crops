@@ -48,8 +48,8 @@ public class DynamicPlants {
 
 	public static void createCropBlocks(RegistryEvent.Register<Block> event) {
 		for (String s : Configurator.CATEGORY_WHITELIST.whitelist) {
-			Item i = Item.getByNameOrId(s);
-			BaseCrop newCrop = new BaseCrop(null, i, "dcrop_" + i.getRegistryName());
+			Item item = Item.getByNameOrId(s);
+			BaseCrop newCrop = new BaseCrop(null, new ItemStack(item, 1), "dcrop_" + item.getRegistryName());
 			cropsList.add(newCrop);
 			event.getRegistry().register(newCrop);
 		}
@@ -62,7 +62,7 @@ public class DynamicPlants {
 					"dseed_" + item.getRegistryName(), -1); //Main.proxy.getStackColor(new ItemStack(item)));
 			newSeed.setIsDynamic(true).setDisplayName(item.getItemStackDisplayName(new ItemStack(item)) + " Seeds");
 			newSeed.setCreativeTab(Main.modCreativeTab);
-			cropsList.get(b).itemSeed = newSeed;
+			cropsList.get(b).setSeed(new ItemStack(newSeed, 1));
 			seedsList.add(newSeed);
 			event.getRegistry().register(newSeed);
 			Main.logger.debug("DynamicPlants: Registering Model");
