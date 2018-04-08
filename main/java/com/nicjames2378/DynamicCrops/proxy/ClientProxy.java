@@ -5,6 +5,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import com.nicjames2378.DynamicCrops.DynamicPlants;
 import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.baseClasses.BaseSeed;
+import com.nicjames2378.DynamicCrops.baseClasses.BaseCrop;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -15,11 +16,13 @@ import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid=Reference.MOD_ID, value = Side.CLIENT)

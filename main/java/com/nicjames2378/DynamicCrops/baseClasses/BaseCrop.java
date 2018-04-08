@@ -1,15 +1,23 @@
 package com.nicjames2378.DynamicCrops.baseClasses;
 
 import com.nicjames2378.DynamicCrops.Main;
+import com.nicjames2378.DynamicCrops.blocks.ModBlocks;
 import com.nicjames2378.DynamicCrops.utils.Reference;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.BlockStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BaseCrop extends BlockCrops {
 	protected ItemStack itemSeed;
@@ -32,6 +40,21 @@ public class BaseCrop extends BlockCrops {
 		setRegistryName(registryName);
 	}
 	
+//	private void regModel() {
+//		BaseCrop c = this;
+//		ModelLoader.setCustomStateMapper(c, new StateMapperBase() {
+//            @Override
+//            protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+//                //ResourceLocation regName = new ResourceLocation("dynamiccrops:crop_nullanium");
+//                //BaseSeed seed = SEEDS.getValue(regName);
+//                //if (seed.getOverrides().getBlockState() != null)
+//                //    return new ModelResourceLocation(seed.getOverrides().getBlockState().getPath(), "age=" + state.getValue(BlockResourcefulCrop.AGE));
+//            	Main.logger.debug("Crop Register - " + c.getRegistryName());
+//                return new ModelResourceLocation(ModBlocks.cropNullanium.getRegistryName(), "[age=" + c.AGE + "]");
+//            }
+//        });
+//	}
+	
 	@Override
 	public Item getSeed() {
 		return itemSeed.getItem();
@@ -52,7 +75,7 @@ public class BaseCrop extends BlockCrops {
 			Main.logger.error("SY: Tried setting crop yield to nothing! Changes not applied.");
 		} else {
 			itemYield = items;
-		}
+		}		
 		return this;
 	}
 	
@@ -60,22 +83,27 @@ public class BaseCrop extends BlockCrops {
 	public Item getCrop() {
 		return itemYield[0].getItem();
 	}
+    
+//	@SubscribeEvent
+//    //@SideOnly(Side.CLIENT)
+//    public static void registerModels(ModelRegistryEvent event) {
+//        ModelLoader.setCustomStateMapper(CROP, new StateMapperBase() {
+//            @Override
+//            protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+//                ResourceLocation regName = new ResourceLocation(state.getValue(BlockResourcefulCrop.SEED_TYPE).replace("_", ":"));
+//                Seed seed = SEEDS.getValue(regName);
+//                if (seed.getOverrides().getBlockState() != null)
+//                    return new ModelResourceLocation(seed.getOverrides().getBlockState().getPath(), "age=" + state.getValue(BlockResourcefulCrop.AGE));
+//
+//                return new ModelResourceLocation(state.getBlock().getRegistryName(), "age=" + state.getValue(BlockResourcefulCrop.AGE));
+//            }
+//        });
+//    }
 	
-//	Need to figure out how to dynamically texture crops.....
-//	
-//	public void registerCropModel() {
-//		Main.logger.debug("RCM: " + isDynamic + " - " + this.getRegistryName() + ", " + this.getUnlocalizedName());
-//		if(isDynamic) {
-//			COLORED_ITEMS.add(this);
-//			// Tells the item to get it's texture from 'dynamiccrops:dseed' instead of, for example, 'dseed_minecraft:record_blocks'
-//			String itemName = Reference.MOD_ID + ":dseed";// + (this.isDynamic ? "dseed" : "seed");
-//			BlockStateMapper mapper = new BlockStateMapper()
-//			ModelLoader.setCustomStateMapper(this, mapper);
-//			ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(itemName, "inventory"));
-//		} else {
-//			ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-//		}
-//	}
+	public int getCropAge(IBlockState state)
+    {
+        return ((Integer)state.getValue(this.getAgeProperty())).intValue();
+    }
 		
 	@Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
@@ -88,10 +116,4 @@ public class BaseCrop extends BlockCrops {
 			}
 		}
     }
-//	
-//	public BaseCrop setDrops(int seedYieldCount, int itemYieldCount) {//, ItemStack[] otherItems) {
-//		this.seedYieldCount = seedYieldCount;
-//		this.itemYieldCount = itemYieldCount;
-//		return this;
-//	}
 }
