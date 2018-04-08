@@ -1,7 +1,9 @@
 itemGroup.creativetab=Dynamic Crops
 
 tile.dynamiccrops.block_nullanium.name=Block of Nullanium
+tile.dynamiccrops.crop_nullanium.name=Nullanium Crop
+tile.dynamiccrops.dcrop.suffix=Crop
 
 item.dynamiccrops.ingot_nullanium.name=Nullanium Ingot
-
 item.dynamiccrops.seed_nullanium.name=Nullanium Seeds
+item.dynamiccrops.dseed.suffix=Seeds

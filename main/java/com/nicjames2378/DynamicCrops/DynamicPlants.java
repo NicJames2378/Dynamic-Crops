@@ -59,7 +59,7 @@ public class DynamicPlants {
 			Item item = Item.getByNameOrId(Configurator.CATEGORY_WHITELIST.whitelist[b]);
 			BaseSeed newSeed = new BaseSeed(cropsList.get(b), Blocks.FARMLAND,
 					"dseed_" + item.getRegistryName(), -1); //Main.proxy.getStackColor(new ItemStack(item)));
-			newSeed.setIsDynamic(true).setDisplayName(item.getItemStackDisplayName(new ItemStack(item)) + " Seeds");
+			newSeed.setIsDynamic(true).setDisplayName(item.getItemStackDisplayName(new ItemStack(item)));// + " Seeds");
 			newSeed.setCreativeTab(Main.modCreativeTab);
 			cropsList.get(b).setSeed(new ItemStack(newSeed, 1));
 			seedsList.add(newSeed);

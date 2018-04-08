@@ -6,7 +6,7 @@ import java.util.List;
 import com.nicjames2378.DynamicCrops.IColorable;
 import com.nicjames2378.DynamicCrops.Main;
 import com.nicjames2378.DynamicCrops.utils.Reference;
-
+import net.minecraft.client.resources.I18n;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -14,6 +14,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -76,7 +77,7 @@ public class BaseSeed extends ItemSeeds implements IColorable {
 	@Override // Overridden to allow manually setting names for seeds
     public String getItemStackDisplayName(ItemStack stack) {
         if (isDynamic && !(displayName == null || displayName == "")) {
-        	return displayName;
+        	return displayName + " " + I18n.format("item.dynamiccrops.dseed.suffix");
         }
         return super.getItemStackDisplayName(stack);
     }
